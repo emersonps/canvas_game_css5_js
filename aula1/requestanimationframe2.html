@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+	   	<link rel="stylesheet" type="text/css" href="css/style.css">
+	   	<title>HTML5 Canvas</title>
+		<script>
+			window.onload = function(){
+				//Aqui trabalhamos com o Canvas
+			}
+		</script>
+	</head>
+	<body>
+		<!-- arquivo: caminhos.html-->
+		<canvas id="meu_canvas" width="300" height="300">
+			Se essa mensagem aparecer, seu navegador precisa ser atualizado!
+		</canvas>
+		
+		<script>
+			var canvas = document.getElementById('meu_canvas');
+			var context = canvas.getContext('2d');
+
+			//Dados da bola
+			var x = 20;
+			var y = 100;
+			var raio = 5;
+			
+
+			//Momento atual 
+			var anterior = new Date().getTime();
+
+			//iniciar a animação
+			requestAnimationFrame(mexerBola);
+
+			//Função de animação
+			function mexerBola(){
+				//Momento Anterior
+				var agora = new Date().getTime();
+				
+				//Diferença
+				var decorrido = agora - anterior;
+
+				//Aqui uma bolinha se deslocará
+				//Limpar o Canvas
+				context.clearRect(0,0, canvas.width, canvas.height);
+
+				//Desenhar a bola
+				context.beginPath();
+				context.arc(x,y,raio,0,Math.PI*2);
+				context.fill();
+				
+				var velocidade = 1000;
+				x += velocidade * decorrido / 1000;
+				
+				//Guardamos o instante para o próximo ciclo
+				anterior = agora;
+
+				//Chamar o próximo ciclo da animação
+				requestAnimationFrame(mexerBola);
+			}
+		</script>
+	</body>
+</html>

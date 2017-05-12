@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+	   	<link rel="stylesheet" type="text/css" href="css/style.css">
+	   	<title>HTML5 Canvas</title>
+		<script>
+			window.onload = function(){
+				//Aqui trabalhamos com o Canvas
+			}
+		</script>
+	</head>
+	<body>
+		<!-- arquivo: caminhos.html-->
+		<canvas id="meu_canvas" width="300" height="300">
+			Se essa mensagem aparecer, seu navegador precisa ser atualizado!
+		</canvas>
+		
+		<script>
+			//canvas e contexto
+			var canvas = document.getElementById('meu_canvas');
+			var context = canvas.getContext('2d');
+
+			//iniciar o caminho (apaga desenhos anteriores)
+			context.beginPath();
+
+			//Desenhar uma estrela
+			context.moveTo(75,250); //Ponto Inicial
+			context.lineTo(150,50);
+			context.lineTo(225,250);
+			context.lineTo(50,120);
+			context.lineTo(250,120);
+			context.lineTo(75,250);
+			
+
+			//Configurar a linha
+			context.lineWidth = 2;
+			context.strokeStyle = 'red';
+
+			//Traçar as linhas do caminho
+			context.stroke();
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+	   	<link rel="stylesheet" type="text/css" href="css/style.css">
+	   	<title>HTML5 Canvas</title>
+		<script>
+			window.onload = function(){
+				//Aqui trabalhamos com o Canvas
+			}
+		</script>
+	</head>
+	<body>
+		<canvas id="meu_canvas" width="300" height="300">
+			Se essa mensagem aparecer, seu navegador precisa ser atualizado!
+		</canvas>
+		
+		<script>
+			//Contexto gráfico e trabalho com o Canvas
+			//Referenciando o Canvas
+			var canvas = document.getElementById('meu_canvas');
+			//Obtendo o contexto gráfico
+			var context = canvas.getContext('2d');
+
+			//desenhar um retangulo
+			//context.fillRect(50,50,100,100);
+
+			//preenchimento vermelho
+			context.fillStyle = 'red';
+			context.fillRect(50,50,100,100);
+
+			//contorno azul, com espessura 3px
+			context.lineWidth = 3;
+			context.strokeStyle = 'blue';
+			context.strokeRect(50,50,100,100);
+		</script>
+	</body>
+</html>

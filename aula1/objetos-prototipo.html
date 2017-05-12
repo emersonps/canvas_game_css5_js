@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+	   	<link rel="stylesheet" type="text/css" href="css/style.css">
+	   	<title>Prototype</title>
+		<script src="carro.js"></script>
+	</head>
+	<!-- arquivo: prototype / protótipo -->
+	<body>
+		<script>
+			//Criando método com função anônima
+			/*function Carro(cor, velocMaxima){
+				this.acelerar = function(){
+					this.velocAtual += 10;
+				}
+			}*/
+
+			var meuCarro = new Carro('vermelho', 250);
+			meuCarro.acelerar();
+			document.write(meuCarro.cor + ' : ' + meuCarro.velocAtual);
+
+		</script>
+	</body>
+</html>

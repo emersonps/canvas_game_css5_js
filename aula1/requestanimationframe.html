@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+	   	<link rel="stylesheet" type="text/css" href="css/style.css">
+	   	<title>HTML5 Canvas</title>
+		<script>
+			window.onload = function(){
+				//Aqui trabalhamos com o Canvas
+			}
+		</script>
+	</head>
+	<body>
+		<!-- arquivo: caminhos.html-->
+		<canvas id="meu_canvas" width="300" height="300">
+			Se essa mensagem aparecer, seu navegador precisa ser atualizado!
+		</canvas>
+		
+		<script>
+			var canvas = document.getElementById('meu_canvas');
+			var context = canvas.getContext('2d');
+
+			//Dados da bola
+			var x = 20;
+			var y = 100;
+			var raio = 5;
+
+			//iniciar a animação
+			requestAnimationFrame(mexerBola);
+
+			//Função de animação
+			function mexerBola(){
+				//Aqui uma bolinha se deslocará
+				//Limpar o Canvas
+				context.clearRect(0,0, canvas.width, canvas.height);
+
+				//Desenhar a bola
+				context.beginPath();
+				context.arc(x,y,raio,0,Math.PI*2);
+				context.fill();
+				
+				//Deslocar 20 pixels para a direita
+				y += 20;
+				x += 20;
+				raio+=5;
+				
+				//Chamar o próximo ciclo da animação
+				requestAnimationFrame(mexerBola);
+			}
+		</script>
+	</body>
+</html>

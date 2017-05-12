@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+	   	<link rel="stylesheet" type="text/css" href="css/style.css">
+	   	<title>HTML5 Canvas</title>
+		<script>
+			window.onload = function(){
+				//Aqui trabalhamos com o Canvas
+			}
+		</script>
+	</head>
+	<body>
+		<!-- arquivo: caminhos.html-->
+		<canvas id="meu_canvas" width="300" height="300">
+			Se essa mensagem aparecer, seu navegador precisa ser atualizado!
+		</canvas>
+		
+		<script>
+			var canvas = document.getElementById('meu_canvas');
+			var context = canvas.getContext('2d');
+
+			//Carregar a imagem
+			var imagem = new Image();
+			imagem.src = 'img/ovni.png';
+			imagem.onload = function(){
+				//Aqui usaremos drawImage
+				//começar na posição 20
+				var x = 20;
+
+				//Desenhar as imagens
+				for(var i = 1; i <= 5; i++){
+					context.drawImage(imagem, x, 20, 64, 32);
+					x += 70;
+				}
+			}
+		</script>
+	</body>
+</html>
