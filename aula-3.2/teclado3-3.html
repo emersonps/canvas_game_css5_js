@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Movimentando personagem com classe JavaScript</title>
+   <script src="teclado.js"></script>
+</head>
+<body>
+	<canvas id="canvas_teclado" width="500" height="500"></canvas>
+	<script>
+		var canvas = document.getElementById('canvas_teclado');
+		var context = canvas.getContext('2d');
+
+		var posicaoX = 0;
+		var posicaoY = 0;
+		var teclado = new Teclado(document);
+		//Impressão da Imagem
+		var imagem = new Image();
+		
+		requestAnimationFrame(animar);
+
+ 		function animar() {
+			if (teclado.pressionada(SETA_ESQUERDA))
+			    posicaoX -= 10;
+			else if (teclado.pressionada(SETA_DIREITA))
+			    posicaoX += 10;
+			if (teclado.pressionada(SETA_BAIXO))
+			    posicaoY += 10;
+			else if (teclado.pressionada(SETA_CIMA))
+			    posicaoY -= 10;
+
+			imagem.src = 'img/ovni.png';
+
+			requestAnimationFrame(animar);
+		}
+
+		imagem.onload = function(){
+			context.drawImage(imagem, posicaoX, posicaoY, 64, 32);
+		}
+	</script>
+</body>
+</html>

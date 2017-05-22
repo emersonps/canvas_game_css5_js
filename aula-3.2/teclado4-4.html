@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Movimentando personagem com classe JavaScript</title>
+   <script src="teclado4.js"></script>
+   <script src="nave.js"></script>
+  
+  
+</head>
+<body>
+	<canvas id="canvas_teclado" width="500" height="500"></canvas>
+	<script>
+		var canvas = document.getElementById('canvas_teclado');
+		var context = canvas.getContext('2d');
+
+		var teclado = new Teclado(document);
+		var animacao = new Animacao(context);
+		var nave = new Image(context, teclado);
+		naveX = 0;
+		naveY = 100;
+		animacao.novoSprite(nave);
+
+		teclado.disparou(ESPAÇO, function(){
+			nave.atirar();
+		})
+		
+		animacao.ligar();
+	</script>
+</body>
+</html>

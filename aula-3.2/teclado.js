@@ -23,6 +23,7 @@ function Teclado(elemento) {
 
       // Disparar somente se for o primeiro keydown da tecla
       if (teclado.funcoesDisparo[tecla] && !teclado.disparadas[tecla]) {
+
           teclado.disparadas[tecla] = true;
           teclado.funcoesDisparo[tecla] () ;
       }
